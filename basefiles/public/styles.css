@@ -1,0 +1,54 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #00bfff;
+    margin: 0 0 15px 0;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #007acc;
+    border-radius: 4px;
+    background-color: #333;
+    color: #ffffff;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00bfff;
+}
+
+.output {
+    white-space: pre-wrap;
+    margin-top: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #292929;
+    color: #e0e0e0;
+    height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.output div {
+    margin: 0; /* Removed spacing between output entries */
+}
