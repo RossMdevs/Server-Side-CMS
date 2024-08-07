@@ -1,6 +1,6 @@
 # SOFTWARE PROVIDED AS-IS. NO SUPPORT OFFERED.
 
-This is a simple AI-developed API designed for interal conduct reporting in FiveM. It can write, delete, and look up player data. The Express server can serve content through browsers to the `/public/` directory, which can also be disabled for an API-only setup. It serves off port 3000, which can be modified per need. 
+This is a simple AI-developed API for internal conduct reporting in FiveM. It can write, delete, and look up player data. The Express server can serve content through the `/public/` directory, which can be disabled for an API-only setup. The server runs on port 3000 by default, but this can be modified as needed.
 
 # API Example
 To add a player record, use the following command:
@@ -8,14 +8,27 @@ To add a player record, use the following command:
 curl -X POST http://localhost:3000/api/record -H "Content-Type: application/json" -d "{\"player_name\":\"John Doe\", \"fivem_license\":\"license123\", \"warn_ban\":\"Warn\", \"conduct_id\":\"conduct001\", \"reason\":\"Inappropriate behavior\"}"
 ```
 
-# Requirements:
+# Setup Instructions
+To set up your project, run:
+```bash
+mkdir cli-cms
+cd cli-cms
+npm init -y
+```
+
+# Requirements
+To install dependencies, run:
+```bash
+npm install express cors mysql path body-parser
+```
 - **Node Package Manager (NPM)**
   - `express`
   - `cors`
   - `mysql` (for both NPM and the server)
   - `path`
+  - `body-parser`
 - **Node.js**
-- **Public Intranet/Network**
+- **Public Intranet/Network** (unless resolving internally)
 - **MySQL Server** (MariaDB, MySQL, etc.)
   - **Must use `IDENTIFIED WITH mysql_native_password`; legacy methods are not supported.**
 
@@ -32,15 +45,17 @@ curl -X POST http://localhost:3000/api/record -H "Content-Type: application/json
 └── package-lock.json
 ```
 
-# Proxy: 
-```server {
+# Proxy Configuration
+```nginx
+server {
     listen 80;
     listen [::]:80;
 
     server_name cms.domain.tld;
-        
+
     location / {
-        proxy_pass IPADDR:3000;
+        proxy_pass http://IPADDR:3000;
         include proxy_params;
     }
-}```
+}
+```
