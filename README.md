@@ -1,9 +1,9 @@
 # SOFTWARE PROVIDED AS-IS. NO SUPPORT OFFERED.
 
-This is a simple AI-developed API for internal conduct reporting in FiveM. It can write, delete, and look up player data. The Express server can serve content through the `/public/` directory, which can be disabled for an API-only setup. The server runs on port 3000 by default, but this can be modified as needed.
+This is a simple AI-developed API for internal conduct reporting in FiveM. It can write, delete, and look up player data. The Express server can serve content through the `/public/` directory, which can be disabled for an API-only setup. The server runs on port 3000 by default, but this can be modified as needed. 
 
 # API Example
-To add a player record, use the following command:
+To add a player record, use the following command (Please not this is unsafe, unless sanitized and tested):
 ```bash
 curl -X POST http://localhost:3000/api/record -H "Content-Type: application/json" -d "{\"player_name\":\"John Doe\", \"fivem_license\":\"license123\", \"warn_ban\":\"Warn\", \"conduct_id\":\"conduct001\", \"reason\":\"Inappropriate behavior\"}"
 ```
