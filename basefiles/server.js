@@ -1,3 +1,4 @@
+// There are set routes that should not be touched, these define the actions, run external commands, and wrap the SQL to the DB.
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
@@ -18,7 +19,7 @@ const db = mysql.createConnection({
 
 db.connect(err => {
     if (err) throw err;
-    console.log('Connected to the database.');
+    console.log('Connected to the database.'); // Prints a console.log that shows a valid conn to your DB, which is mandatory.
 });
 
 // Add a record
